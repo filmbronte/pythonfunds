@@ -1,0 +1,48 @@
+def is_index_in_range(index, cards_count):
+    if 0 <= index < cards_count:
+        return True
+    return False
+
+
+def check_indexes_are_valid(index1, index2, count_cards):
+    if (
+            is_index_in_range(index1, count_cards)
+            and is_index_in_range(index2, count_cards)
+            and index1 != index2
+    ):
+        return True
+    return False
+
+
+cards = input().split()
+
+command = input()
+n_moves = 0
+
+while command != "end":
+    n_moves += 1
+    index1, index2 = [int(el) for el in command]
+    if check_indexes_are_valid(index1, index2, len(cards)):
+        if cards[index1] == cards[index2]:
+            element = cards[index1]
+            cards.pop(index1)
+            cards.pop(index2)
+            print(".....")
+    else:
+        element_to_add = f"-{n_moves}a"
+        index = len(cards) // 2  # "/" would return value as float, whereas "//" returns it as int
+        cards.insert(index, element_to_add)
+        cards.insert(index, element_to_add)
+        print(f"Invalid input!.....")
+
+    if not cards:
+        print(f"You have won in {n_moves} turns!")
+        exit(0)
+
+    command = input()
+
+print("Sorry you lose :(")
+print(*cards, sep=" ")
+
+# exercise not finished
+# review it again before exam
