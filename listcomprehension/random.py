@@ -15,3 +15,5 @@ print("Hello"[::-1])
 numbers = list(map(int, input().split(", ")))
 print(list(filter(lambda x: x % 2 == 0, numbers)))
 # prints all even numbers
+
+print([[0 for j in range(2)] for i in range(3)])
