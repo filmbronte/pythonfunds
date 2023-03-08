@@ -36,5 +36,5 @@ print(bubble_sort(x))
 """
 Time Complexity:
 Best case: O(n)
-Worst/Average case: O(n**2)
+Worst/Average case: O(n*n)
 """
